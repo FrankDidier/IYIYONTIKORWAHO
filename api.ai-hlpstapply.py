@@ -37,12 +37,12 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    elif req.get("result").get("action") != "Mastapp":
-        return {}
-    elif req.get("result").get("action") != "Phdapp":
-        return {}
-    elif req.get("result").get("action") != "Nondapp":
-        return {}
+    #elif req.get("result").get("action") != "Mastapp":
+        #return {}
+    #elif req.get("result").get("action") != "Phdapp":
+        #return {}
+    #elif req.get("result").get("action") != "Nondapp":
+        #return {}
 
     with open('Sheet1.json') as f:
         data = f.read()
