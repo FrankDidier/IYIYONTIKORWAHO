@@ -105,7 +105,44 @@ def makeWebhookResult(data):
         "speech": speech,
         "displayText": speech,
         # "data": data,
-        # "contextOut": [],
+        "contexts": [
+      {
+        "name": "bachelors-degree",
+        "parameters": {
+          "BachLevp": [
+            "Bachelor's"
+          ],
+          "BachLevp.original": "Bachelor's Degree",
+          "BachSubject": [
+            "Civil Engineering"
+          ],
+          "BachTime.original": "Spring",
+          "BachTime": [
+            "February"
+          ],
+          "BachSubject.original": "Civil Engineering"
+        },
+        "lifespan": 5
+      },
+      {
+        "name": "bachelors",
+        "parameters": {
+          "BachLevp": [
+            "Bachelor's"
+          ],
+          "BachLevp.original": "Bachelor's Degree",
+          "BachSubject": [
+            "Civil Engineering"
+          ],
+          "BachTime.original": "Spring",
+          "BachTime": [
+            "February"
+          ],
+          "BachSubject.original": "Civil Engineering"
+        },
+        "lifespan": 5
+      }
+    ],
         "source": "agent"
     }
 
