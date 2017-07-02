@@ -37,12 +37,12 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    #elif req.get("result").get("action") != "Mastapp":
-        #return {}
-    #elif req.get("result").get("action") != "Phdapp":
-        #return {}
-    #elif req.get("result").get("action") != "Nondapp":
-        #return {}
+    if req.get("result").get("action") != "Mastapp":
+        return {}
+    if req.get("result").get("action") != "Phdapp":
+        return {}
+    if req.get("result").get("action") != "Nondapp":
+        return {}
 
     with open('Sheet1.json') as f:
         data = f.read()
@@ -105,44 +105,7 @@ def makeWebhookResult(data):
         "speech": speech,
         "displayText": speech,
         # "data": data,
-        "contexts": [
-      {
-        "name": "bachelors-degree",
-        "parameters": {
-          "BachLevp": [
-            "Bachelor's"
-          ],
-          "BachLevp.original": "Bachelor's Degree",
-          "BachSubject": [
-            "Civil Engineering"
-          ],
-          "BachTime.original": "Spring",
-          "BachTime": [
-            "February"
-          ],
-          "BachSubject.original": "Civil Engineering"
-        },
-        "lifespan": 5
-      },
-      {
-        "name": "bachelors",
-        "parameters": {
-          "BachLevp": [
-            "Bachelor's"
-          ],
-          "BachLevp.original": "Bachelor's Degree",
-          "BachSubject": [
-            "Civil Engineering"
-          ],
-          "BachTime.original": "Spring",
-          "BachTime": [
-            "February"
-          ],
-          "BachSubject.original": "Civil Engineering"
-        },
-        "lifespan": 5
-      }
-    ],
+        #"contexts": [],
         "source": "agent"
     }
 
