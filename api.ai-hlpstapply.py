@@ -28,23 +28,11 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def makeWebhookResult(req):
-    if req.get("result").get("action") != "Bachapp":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    Levp = parameters.get("BachLevp")
-    Progr = parameters.get("BachSubject")
-    time = parameters.get("BachTime")
+def makeWebhookResult():
     
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
-        
-    match = jsonpath.jsonpath(jsondata,'$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')    
 
 
-    speech = "The info about bachelor's degree are " + match + "Thank you"
+    speech = "The info about bachelor's degree are " + "Thank you"
 
     print("Response:")
     print(speech)
