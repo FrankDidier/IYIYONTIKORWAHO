@@ -1,4 +1,5 @@
 Flask==0.12.2
 jsonpath==0.75
 future==0.16.0
-requests==2.13.0
+requests==2.18.1
+request==0.0.0
