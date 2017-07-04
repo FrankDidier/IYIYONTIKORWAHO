@@ -68,39 +68,13 @@ def makejsonQuery(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
-
-    result = query.get('results')
-    if result is None:
-        return {}
-
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-
-    Univname = channel.get('UniversityName')
-    progname = channel.get('ProgramName')
-    progurl = channel.get('Program URL')
-    yaz = channel.get('Years')
-    Appdead = channel.get('App Deadline')
-    FirstTuit = channel.get('1stYrTuition')
-    Tuit = channel.get('Tuition')
-
-    if (progname is None) or (progurl is None) or (yaz is None) or (Appdead is None) or (FirstTuit is None) or (Univname is None) or (Tuit is None):
-        return {}
-
-    #speech = "Would you like to study in " + Univname + ": " + progname + \
-    #         ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
-    #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
-    #         ",this program will take " + yaz + "Years"
+    
 
 
-    speech = "Would you like to study in " + Univname.get('UniversityName') + ": " + progname.get('ProgramName') + \
-            ", click this link to apply to this program " + progurl.get('Program URL') + "With Application Deadline on " + Appdead.get('Tuition') + \
-             ",Whereby First Year Tuition fees is " + FirstTuit.get('1stYrTuition') + "In total Tuition Fees is " + Tuit.get('Tuition') + \
-             ",this program will take " + yaz.get('Years') + "Years"
+    speech = "Would you like to study in " + + ": " +  + \
+            ", click this link to apply to this program " ++ "With Application Deadline on " +  + \
+             ",Whereby First Year Tuition fees is " +  + "In total Tuition Fees is " +  + \
+             ",this program will take " +  + "Years"
 
     print("Response:")
     print(speech)
