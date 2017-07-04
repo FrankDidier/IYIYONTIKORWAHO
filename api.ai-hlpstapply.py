@@ -4,9 +4,6 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 install_aliases()
 
-from urllib.parse import urlparse, urlencode
-from urllib.request import urlopen, Request
-from urllib.error import HTTPError
 
 import json
 import os
@@ -39,12 +36,12 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    elif req.get("result").get("action") != "Mastapp":
-        return {}
-    elif req.get("result").get("action") != "Phdapp":
-        return {}
-    elif req.get("result").get("action") != "Nondapp":
-        return {}
+    #elif req.get("result").get("action") != "Mastapp":
+    #   return {}
+    #elif req.get("result").get("action") != "Phdapp":
+    #    return {}
+    #elif req.get("result").get("action") != "Nondapp":
+    #    return {}
 
     with open('Sheet1.json') as f:
         data = f.read()
