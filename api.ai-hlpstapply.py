@@ -34,13 +34,13 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "Bachapp":
+    if req.get("result").get("action") != "Phdapp":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    Levp = parameters.get("BachLevp")
-    Progr = parameters.get("BachSubject")
-    time = parameters.get("BachTime")
+    Levp = parameters.get("PhDDegLevp")
+    Progr = parameters.get("PhDsubjects")
+    time = parameters.get("PhdTime")
     
     with open('Sheet1.json') as f:
         data = f.read()
