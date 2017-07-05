@@ -25,7 +25,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    res = makeWebhookResult(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -33,29 +33,18 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def processRequest(req):
+def makeWebhookResult(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
-    # data = json.loads(result)
-    #res = makeWebhookResult(jsondata)
-    return jsondata
-
-def makejsonQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
     Levp = parameters.get("BachLevp")
     Progr = parameters.get("BachSubject")
     time = parameters.get("BachTime")
-    if Levp is None:
-        return None
-    elif Progr is None:
-        return None
-    elif time is None:
-        return None
+    
+    with open('Sheet1.json') as f:
+        data = f.read()
+        jsondata = json.loads(data)
 
     match = jsonpath.jsonpath(jsondata,'$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
     #return match
@@ -76,7 +65,7 @@ def makejsonQuery(req):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "agent"
+        "source": "marcopolo1995"
     }
 
 if __name__ == '__main__':
