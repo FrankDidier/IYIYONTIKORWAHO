@@ -43,7 +43,7 @@ def makeWebhookResult(req):
     time = parameters.get("PhdTime")
     Levp = parameters.get("PhDDegLevp")
     
-    with open('Sheet1.json') as f:
+    with open('IYIYONTIKORWAHO/Sheet1.json') as f:
         data = f.read()
         jsondata = json.loads(data)
 
