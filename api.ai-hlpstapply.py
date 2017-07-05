@@ -36,19 +36,13 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    #elif req.get("result").get("action") != "Mastapp":
-    #   return {}
-    #elif req.get("result").get("action") != "Phdapp":
-    #    return {}
-    #elif req.get("result").get("action") != "Nondapp":
-    #    return {}
-
+    
     with open('Sheet1.json') as f:
         data = f.read()
         jsondata = json.loads(data)
     # data = json.loads(result)
-    res = makeWebhookResult(jsondata)
-    return res
+    #res = makeWebhookResult(jsondata)
+    return jsondata
 
 def makejsonQuery(req):
     result = req.get("result")
@@ -64,17 +58,15 @@ def makejsonQuery(req):
         return None
 
     match = jsonpath.jsonpath(jsondata,'$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
-    return match
-
-
-def makeWebhookResult(data):
+    #return match
     
+    #speech = "Would you like to study in " + Univname + ": " + progname + \
+    #         ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
+    #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
+    #         ",this program will take " + yaz + "Years"
 
 
-    speech = "Would you like to study in " + + ": " +  + \
-            ", click this link to apply to this program " ++ "With Application Deadline on " +  + \
-             ",Whereby First Year Tuition fees is " +  + "In total Tuition Fees is " +  + \
-             ",this program will take " +  + "Years"
+    speech = match
 
     print("Response:")
     print(speech)
