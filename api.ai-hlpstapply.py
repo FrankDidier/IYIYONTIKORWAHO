@@ -42,19 +42,24 @@ def makeWebhookResult(req):
     Progr = parameters.get("PhDsubjects")
     time = parameters.get("PhdTime")
     Levp = parameters.get("PhDDegLevp")
+    
+    url = "https://raw.githubusercontent.com/FrankDidier/IYIYONTIKORWAHO/master/Sheet1.json"
+    result = urlopen(url).read()
+    jsondata = json.loads(result)
 
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
+    #with open('Sheet1.json') as f:
+    #    data = f.read()
+    #    jsondata = json.loads(data)
+        
 
 
 
 
     match = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName')
+                              '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
 
 
-    speech = "This is the universities you were looking for "
+    speech = "This is the universities you were looking for " + match
 
     print("Response:")
     print(speech)
