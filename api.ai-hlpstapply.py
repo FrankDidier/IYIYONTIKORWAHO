@@ -50,8 +50,8 @@ def makeWebhookResult(req):
 
 
 
-    match = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
+    #match = jsonpath.jsonpath(jsondata,
+                              #'$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
     # return match
 
     # speech = "Would you like to study in " + Univname + ": " + progname + \
@@ -60,7 +60,7 @@ def makeWebhookResult(req):
     #         ",this program will take " + yaz + "Years"
 
 
-    speech = "Hello this is your webhook call i am here for you" + jsonpath.jsonpath(jsondata,
+    speech = jsonpath.jsonpath(jsondata,
                               '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
 
     print("Response:")
