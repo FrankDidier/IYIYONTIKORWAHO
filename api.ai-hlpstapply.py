@@ -1,13 +1,6 @@
-#!/usr/bin/env python
+  #!/usr/bin/env python
 
-from __future__ import print_function
-from future.standard_library import install_aliases
-install_aliases()
-
-from urllib.parse import urlparse, urlencode
-from urllib.request import urlopen, Request
-from urllib.error import HTTPError
-
+import urllib
 import json
 import os
 
@@ -21,70 +14,47 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = request.get_json(silent=True, force=True)
+req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+print("Request:")
+print(json.dumps(req, indent=4))
 
-    res = makeWebhookResult(data)
+res = makeWebhookResult(req)
 
-    res = json.dumps(res, indent=4)
-    # print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
+res = json.dumps(res, indent=4)
+print(res)
+r = make_response(res)
+r.headers['Content-Type'] = 'application/json'
+return r
 
+def makeWebhookResult(req):
+if req.get("result").get("action") != "yahooWeatherForecast":
+    return {}
+result = req.get("result")
+parameters = result.get("parameters")
+parcelnr = parameters.get("geo-city")
 
-def makeYqlQuery(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    if city is None:
-        return None
-    
-    return city
+#parcelinfo = {'5000':'your parcel has been shipped', '5001':'your parcel has 
+#not been shipped', '5002':'should be delivered on three days', '5003':'your 
+#parcel has not been shipped', '5004':'your parcel has been shipped'}
 
-    #return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
+speech = "Parcel with numner" + parcelnr + " is "
 
+print("Response:")
+print(speech)
 
-def makeWebhookResult(data):
-    if data.get("result").get("action") != "yahooWeatherForecast":
-        return {}
-    data = makeYqlQuery(req)
-    query = data.get('query')
-    if query is None:
-        return {}
-
-    result = query.get('results')
-    if result is None:
-        return {}
-
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-
-    
-    location = channel.get('location')
-
-    # print(json.dumps(item, indent=4))
-
-    speech = "Today in " + location.get('city')
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "marcopolo1995"
-    }
+return {
+    "speech": speech,
+    "displayText": speech,
+    #"data": {},
+    # "contextOut": [],
+    "source": "marcopolo1995"
+}
 
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
+port = int(os.getenv('PORT', 5000))
 
-    print("Starting app on port %d" % port)
+print "Starting app on port %d" % port
 
-    app.run(debug=False, port=port, host='0.0.0.0')
+app.run(debug=True, port=port, host='0.0.0.0')
