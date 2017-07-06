@@ -39,12 +39,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Bachapp":
         return {}
-    elif req.get("result").get("action") != "Mastapp":
-        return {}
-    elif req.get("result").get("action") != "Phdapp":
-        return {}
-    elif req.get("result").get("action") != "Nondapp":
-        return {}
+    
 
     with open('Sheet1.json') as f:
         data = f.read()
@@ -93,13 +88,15 @@ def makeWebhookResult(data):
 
     if (progname is None) or (progurl is None) or (yaz is None) or (Appdead is None) or (FirstTuit is None) or (Univname is None) or (Tuit is None):
         return {}
+    
+    speech = "Hello Bro this is webhook"
 
-    speech = "Would you like to study in " + Univname + ": " + progname + \
-             ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
-             ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
-             ",this program will take " + yaz + "Years"
+    #speech = "Would you like to study in " + Univname + ": " + progname + \
+    #         ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
+    #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
+    #         ",this program will take " + yaz + "Years"
 
-
+    
     #speech = "Would you like to study in " + Univname.get('UniversityName') + ": " + progname.get('ProgramName') + \
     #        ", click this link to apply to this program " + progurl.get('Program URL') + "With Application Deadline on " + Appdead.get('Tuition') + \
     #         ",Whereby First Year Tuition fees is " + FirstTuit.get('1stYrTuition') + "In total Tuition Fees is " + Tuit.get('Tuition') + \
