@@ -60,7 +60,7 @@ def makeWebhookResult(req):
     #         ",this program will take " + yaz + "Years"
 
 
-    speech = "Hello this is your webhook call i am here for you" + PhDDegLevp
+    speech = "Hello this is your webhook call i am here for you" + parameters.get("PhDDegLevp")
 
     print("Response:")
     print(speech)
