@@ -38,7 +38,7 @@ parcelnr = parameters.get("geo-city")
 #not been shipped', '5002':'should be delivered on three days', '5003':'your 
 #parcel has not been shipped', '5004':'your parcel has been shipped'}
 
-speech = "Parcel with numner" + parcelnr + " is "
+speech = "Parcel with numner hhhhahahahahahaa"
 
 print("Response:")
 print(speech)
