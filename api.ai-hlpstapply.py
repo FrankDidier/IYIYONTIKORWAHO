@@ -58,10 +58,11 @@ def makeWebhookResult(req):
     #         ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
     #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
     #         ",this program will take " + yaz + "Years"
-
-
-    speech = jsonpath.jsonpath(jsondata,
+    match = jsonpath.jsonpath(jsondata,
                               '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
+
+
+    speech = match
 
     print("Response:")
     print(speech)
