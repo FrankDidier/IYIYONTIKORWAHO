@@ -74,7 +74,7 @@ def makeWebhookResult(req):
         
 
 
-    speech = Univname.get('PhDsubjects')
+    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"
 
     print("Response:")
     print(speech)
