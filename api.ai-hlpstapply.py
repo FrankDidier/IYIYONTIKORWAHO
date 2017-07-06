@@ -63,15 +63,8 @@ def makeWebhookResult(data):
     if channel is None:
         return {}
 
-    item = channel.get('item')
+    
     location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-        return {}
-
-    condition = item.get('condition')
-    if condition is None:
-        return {}
 
     # print(json.dumps(item, indent=4))
 
