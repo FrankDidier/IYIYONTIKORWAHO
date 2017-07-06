@@ -2,12 +2,14 @@
 
 from __future__ import print_function
 from future.standard_library import install_aliases
-
 install_aliases()
+
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 
 import json
 import os
-import jsonpath
 
 from flask import Flask
 from flask import request
@@ -24,7 +26,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = makeWebhookResult(req)
+    res = makeWebhookResult(data)
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -33,17 +35,23 @@ def webhook():
     return r
 
 
-def makeWebhookResult(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
-        return {}
-    
+def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city is None:
         return None
     
-    query = req.get('query')
+    return city
+
+    #return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
+
+
+def makeWebhookResult(data):
+    if data.get("result").get("action") != "yahooWeatherForecast":
+        return {}
+    data = makeYqlQuery(req)
+    query = data.get('query')
     if query is None:
         return {}
 
@@ -55,37 +63,19 @@ def makeWebhookResult(req):
     if channel is None:
         return {}
 
-    #item = channel.get('item')
+    item = channel.get('item')
     location = channel.get('location')
-    #if req.get("result").get("action") != "Phdapp":
-    #    return {}
-    #result = req.get("result")
-    #parameters = result.get("parameters")
+    units = channel.get('units')
+    if (location is None) or (item is None) or (units is None):
+        return {}
 
-    #Progr = parameters.get("PhDsubjects")
-    #time = parameters.get("PhdTime")
-    #Levp = parameters.get("PhDDegLevp")
+    condition = item.get('condition')
+    if condition is None:
+        return {}
 
-    #with open('Sheet1.json') as f:
-    #    data = f.read()
-    #    jsondata = json.loads(data)
+    # print(json.dumps(item, indent=4))
 
-    #jsondata =
-
-    #match = jsonpath.jsonpath(jsondata,
-    #                          '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
-    # return match
-
-    # speech = "Would you like to study in " + Univname + ": " + progname + \
-    #         ", click this link to apply to this program " + progurl + "With Application Deadline on " + Appdead + \
-    #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
-    #         ",this program will take " + yaz + "Years"
-    
-   
-        
-
-
-    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"+ location.get('city')
+    speech = "Today in " + location.get('city')
 
     print("Response:")
     print(speech)
@@ -94,7 +84,7 @@ def makeWebhookResult(req):
         "speech": speech,
         "displayText": speech,
         # "data": data,
-        # "contextOut": [[{"name":"phd", "lifespan":5}],
+        # "contextOut": [],
         "source": "marcopolo1995"
     }
 
