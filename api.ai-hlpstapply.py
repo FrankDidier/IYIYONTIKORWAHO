@@ -58,19 +58,7 @@ def makeWebhookResult(req):
     #         ",Whereby First Year Tuition fees is " + FirstTuit + "In total Tuition Fees is " + Tuit + \
     #         ",this program will take " + yaz + "Years"
     
-    query = req.get('query')
-    if query is None:
-        return {}
-    
-    result = query.get('results')
-    if result is None:
-        return {}
-    
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-    
-    Univname = channel.get('PhDsubjects')
+   
         
 
 
