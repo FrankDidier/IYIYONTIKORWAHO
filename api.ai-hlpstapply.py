@@ -42,6 +42,21 @@ def makeWebhookResult(req):
     city = parameters.get("geo-city")
     if city is None:
         return None
+    
+    query = req.get('query')
+    if query is None:
+        return {}
+
+    result = query.get('results')
+    if result is None:
+        return {}
+
+    channel = result.get('channel')
+    if channel is None:
+        return {}
+
+    #item = channel.get('item')
+    location = channel.get('location')
     #if req.get("result").get("action") != "Phdapp":
     #    return {}
     #result = req.get("result")
@@ -70,7 +85,7 @@ def makeWebhookResult(req):
         
 
 
-    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"+ city
+    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"+ location.get('city')
 
     print("Response:")
     print(speech)
