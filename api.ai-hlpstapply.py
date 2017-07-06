@@ -34,23 +34,31 @@ def webhook():
 
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "Phdapp":
+    if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
+    
     result = req.get("result")
     parameters = result.get("parameters")
+    city = parameters.get("geo-city")
+    if city is None:
+        return None
+    #if req.get("result").get("action") != "Phdapp":
+    #    return {}
+    #result = req.get("result")
+    #parameters = result.get("parameters")
 
-    Progr = parameters.get("PhDsubjects")
-    time = parameters.get("PhdTime")
-    Levp = parameters.get("PhDDegLevp")
+    #Progr = parameters.get("PhDsubjects")
+    #time = parameters.get("PhdTime")
+    #Levp = parameters.get("PhDDegLevp")
 
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
+    #with open('Sheet1.json') as f:
+    #    data = f.read()
+    #    jsondata = json.loads(data)
 
     #jsondata =
 
-    match = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
+    #match = jsonpath.jsonpath(jsondata,
+    #                          '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,Years,App Deadline,1stYrTuition,Tuition')
     # return match
 
     # speech = "Would you like to study in " + Univname + ": " + progname + \
@@ -62,7 +70,7 @@ def makeWebhookResult(req):
         
 
 
-    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"
+    speech = "I am here your webhook i waiting for you to connect to my data!! Come on do quickly"+ city
 
     print("Response:")
     print(speech)
