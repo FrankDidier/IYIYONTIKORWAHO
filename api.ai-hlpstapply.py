@@ -50,13 +50,15 @@ def makeWebhookResult(req):
     #with open('Sheet1.json') as f:
     #    data = f.read()
     #    jsondata = json.loads(data)
+    
+    match = ["Hello","Bite","Nihao"]
         
 
 
 
 
-    match = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
+    #match = jsonpath.jsonpath(jsondata,
+    #                          '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
 
 
     speech = "This is the universities you were looking for " + match
