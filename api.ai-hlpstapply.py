@@ -62,7 +62,7 @@ def makeWebhookResult(req):
     match_str = ", ".join(match_list)
 
 
-    speech = "This is the universities you were looking for" + match_str
+    speech = "This is the universities you were looking for:=>" + match_str
 
     print("Response:")
     print(speech)
