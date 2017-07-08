@@ -37,16 +37,16 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "Phdapp":
         return {}
     result = req.get("result")
-    #parameters = result.get("parameters")
+    parameters = result.get("parameters")
 
     #Progr = parameters.get("PhDsubjects")
     #time = parameters.get("PhdTime")
     #Levp = parameters.get("PhDDegLevp")
     
-    Levp = str(input("What level do you want to study:\n"))
+    #Levp = str(input("What level do you want to study:\n"))
     #Levp = "PhD"
-    Progr = str(input("Which subject do you want to study:\n"))
-    time = str(input("When do you want to start:\n"))
+    #Progr = str(input("Which subject do you want to study:\n"))
+    #time = str(input("When do you want to start:\n"))
 
     with open('Sheet1.json') as f:
         data = f.read()
@@ -55,7 +55,7 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == parameters.get("PhDsubjects") && @.Level == parameters.get("PhDDegLevp") && @.StartDate == parameters.get("PhdTime"))]].UniversityName,Program URL,App Deadline,1stYrTuition')
     match_str = ", #".join(match_list)
 
 
