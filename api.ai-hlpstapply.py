@@ -39,9 +39,9 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
 
-    Progr = parameters.get("PhDsubjects")
-    time = parameters.get("PhdTime")
-    Levp = parameters.get("PhDDegLevp")
+    Progr_str = parameters.get("PhDsubjects")
+    time_str = parameters.get("PhdTime")
+    Levp_str = parameters.get("PhDDegLevp")
     
     #url = "https://raw.githubusercontent.com/FrankDidier/IYIYONTIKORWAHO/master/Sheet1.json"
     #result = urlopen(url).read()
@@ -58,7 +58,7 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == str(Progr) && @.Level == str(Levp) && @.StartDate == str(time))]].UniversityName,Program URL')
+                              '$.features[[?(@.ProgramName == Progr_str && @.Level == Levp_str && @.StartDate == time_str)]].UniversityName,Program URL')
     match_str = ", ".join(match_list)
 
 
