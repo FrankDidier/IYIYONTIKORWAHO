@@ -58,7 +58,7 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
+                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName')
     match_str = ", ".join(match_list)
 
 
