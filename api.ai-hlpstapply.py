@@ -47,9 +47,9 @@ def makeWebhookResult(req):
     #result = urlopen(url).read()
     #jsondata = json.loads(result)
 
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
+    #with open('Sheet1.json') as f:
+    #    data = f.read()
+    #    jsondata = json.loads(data)
     
     #match = ["Hello","Bite","Nihao"]
         
@@ -57,9 +57,9 @@ def makeWebhookResult(req):
 
 
 
-    match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
-    match_str = ", ".join(match_list)
+    #match_list = jsonpath.jsonpath(jsondata,
+    #                          '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
+    #match_str = ", ".join(match_list)
 
 
     speech = "This is the universities you were looking for "
@@ -68,8 +68,8 @@ def makeWebhookResult(req):
     print(speech)
 
     return json.dumps({
-        "displayText": speech,
         "speech": speech,
+        "displayText": speech,
         
         # "data": data,
         # "contextOut": [[{"name":"phd", "lifespan":5}],
