@@ -43,36 +43,38 @@ def makeWebhookResult(req):
     time = parameters.get("PhdTime")
     Levp = parameters.get("PhDDegLevp")
     
-    url = "https://raw.githubusercontent.com/FrankDidier/IYIYONTIKORWAHO/master/Sheet1.json"
-    result = urlopen(url).read()
-    jsondata = json.loads(result)
+    #url = "https://raw.githubusercontent.com/FrankDidier/IYIYONTIKORWAHO/master/Sheet1.json"
+    #result = urlopen(url).read()
+    #jsondata = json.loads(result)
 
-    #with open('Sheet1.json') as f:
-    #    data = f.read()
-    #    jsondata = json.loads(data)
+    with open('Sheet1.json') as f:
+        data = f.read()
+        jsondata = json.loads(data)
     
-    match = ["Hello","Bite","Nihao"]
+    #match = ["Hello","Bite","Nihao"]
         
 
 
 
 
-    #match = jsonpath.jsonpath(jsondata,
-    #                          '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
+    match_list = jsonpath.jsonpath(jsondata,
+                              '$.features[[?(@.ProgramName == "Economics" && @.Level == "PhD" && @.StartDate == "September")]].UniversityName')
+    match_str = ", ".join(match_list)
 
 
-    speech = "This is the universities you were looking for " + match
+    speech = "This is the universities you were looking for " + match_str
 
     print("Response:")
     print(speech)
 
-    return {
-        "speech": speech,
+    return json.dumps({
         "displayText": speech,
+        "speech": speech,
+        
         # "data": data,
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
-    }
+    })
 
 
 if __name__ == '__main__':
