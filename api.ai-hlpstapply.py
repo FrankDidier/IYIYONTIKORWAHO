@@ -39,30 +39,22 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
 
-    Progr_str = parameters.get("PhDsubjects")
-    time_str = parameters.get("PhdTime")
-    Levp_str = parameters.get("PhDDegLevp")
-    
-    #url = "https://raw.githubusercontent.com/FrankDidier/IYIYONTIKORWAHO/master/Sheet1.json"
-    #result = urlopen(url).read()
-    #jsondata = json.loads(result)
+    Progr = parameters.get("PhDsubjects")
+    time = parameters.get("PhdTime")
+    Levp = parameters.get("PhDDegLevp")
 
     with open('Sheet1.json') as f:
         data = f.read()
         jsondata = json.loads(data)
-    
-    #match = ["Hello","Bite","Nihao"]
-        
-
 
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Progr_str && @.Level == Levp_str && @.StartDate == time_str)]].UniversityName,Program URL')
-    match_str = ", ".join(match_list)
+                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
+    match_str = ", #".join(match_list)
 
 
-    speech = "This is the universities you were looking for:=>" + match_str
+    speech = "These are the universities you were looking for with the program name/direct link also with Application Deadline with their first year Tuition Fees:=>" + match_str
 
     print("Response:")
     print(speech)
