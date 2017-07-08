@@ -62,20 +62,19 @@ def makeWebhookResult(req):
     #match_str = ", ".join(match_list)
 
 
-    speech = "This is the universities you were looking for "
+    speech = "This is the universities you were looking for"
 
     print("Response:")
     print(speech)
 
-    return json.dumps({
+    return {
         "speech": speech,
         "displayText": speech,
         
         # "data": data,
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
-        #"source": "IYIYONTIKORWAHO"
-    })
+    }
 
 
 if __name__ == '__main__':
