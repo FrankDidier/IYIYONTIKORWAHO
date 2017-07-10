@@ -44,9 +44,9 @@ def makeWebhookResult(req):
     
     Levp = parameters.get("PhDDegLevp")
     
-    A=Progr
-    B=time
-    C=Levp
+    A=str(Progr)
+    B=str(time)
+    C=str(Levp)
     
     
     
@@ -75,7 +75,7 @@ def makeWebhookResult(req):
         "speech": speech,
         "displayText": speech,
         
-        "data": [],
+        #"data": [],
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
     }
