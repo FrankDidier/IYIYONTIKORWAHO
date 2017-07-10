@@ -33,20 +33,28 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "Phdapp":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
+    if req.get("result").get("action") == "Phdapp":
+        result = req.get("result")
+        parameters = result.get("parameters")
 
-    Progr = parameters.get("PhDsubjects")
+        Progr = parameters.get("PhDsubjects")
     
-    time = parameters.get("PhdTime")
+        time = parameters.get("PhdTime")
     
-    Levp = parameters.get("PhDDegLevp")
+        Levp = parameters.get("PhDDegLevp")
+        #return {}
+    #result = req.get("result")
+    #parameters = result.get("parameters")
+
+    #Progr = parameters.get("PhDsubjects")
     
-    A=str(Progr)
-    B=str(time)
-    C=str(Levp)
+    #time = parameters.get("PhdTime")
+    
+    #Levp = parameters.get("PhDDegLevp")
+    
+    #A=str(Progr)
+    #B=str(time)
+    #C=str(Levp)
     
     
     
@@ -62,7 +70,7 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == A && @.Level == C && @.StartDate == B)]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
     match_str = ", #".join(match_list)
 
 
