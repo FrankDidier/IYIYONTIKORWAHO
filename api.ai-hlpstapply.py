@@ -75,7 +75,7 @@ def makeWebhookResult(req):
         "speech": speech,
         "displayText": speech,
         
-        "data": data,
+        "data": [],
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
     }
