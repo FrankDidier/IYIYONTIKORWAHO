@@ -74,7 +74,7 @@ def makeWebhookResult(req):
     match_str = ", #".join(match_list)
 
 
-    speech = "These are :) the universities you were looking for with their Program direct link ,Application Deadline with first year Tuition Fees:=>" + match_str
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
 
     print("Response:")
     print(speech)
