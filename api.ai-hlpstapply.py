@@ -49,7 +49,22 @@ def makeWebhookResult(req):
             
         match_list = jsonpath.jsonpath(jsondata,
                               '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
-        match_str = ", #".join(match_list)    
+        match_str = ", #".join(match_list) 
+        
+        speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
+        
+        print("Response:")
+        print(speech)
+        
+        return {
+        "speech": speech,
+        "displayText": speech,
+        
+        #"data": [],
+        # "contextOut": [[{"name":"phd", "lifespan":5}],
+        "source": "marcopolo1995"
+    }
+        
     
 
     #with open('Sheet1.json') as f:
@@ -63,19 +78,19 @@ def makeWebhookResult(req):
     #match_str = ", #".join(match_list)
 
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
+    #speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
 
-    print("Response:")
-    print(speech)
+    #print("Response:")
+    #print(speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
+    #return {
+    #    "speech": speech,
+    #    "displayText": speech,
         
         #"data": [],
         # "contextOut": [[{"name":"phd", "lifespan":5}],
-        "source": "marcopolo1995"
-    }
+    #    "source": "marcopolo1995"
+    #}
 
 
 if __name__ == '__main__':
