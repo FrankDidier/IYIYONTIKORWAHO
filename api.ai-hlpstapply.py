@@ -42,36 +42,25 @@ def makeWebhookResult(req):
         time = str(input(parameters.get("PhdTime")))
     
         Levp = str(input(parameters.get("PhDDegLevp")))
-        #return {}
-    #result = req.get("result")
-    #parameters = result.get("parameters")
-
-    #Progr = parameters.get("PhDsubjects")
-    
-    #time = parameters.get("PhdTime")
-    
-    #Levp = parameters.get("PhDDegLevp")
-    
-    #A=str(Progr)
-    #B=str(time)
-    #C=str(Levp)
-    
-    
-    
-    #Levp = str(input("What level do you want to study:\n"))
-    #Levp = "PhD"
-    #Progr = str(input("Which subject do you want to study:\n"))
-    #time = str(input("When do you want to start:\n"))
-
-    with open('Sheet1.json') as f:
-        data = f.read()
-        jsondata = json.loads(data)
-
-
-
-    match_list = jsonpath.jsonpath(jsondata,
+        
+        with open('Sheet1.json') as f:
+            data = f.read()
+            jsondata = json.loads(data)
+            
+        match_list = jsonpath.jsonpath(jsondata,
                               '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
-    match_str = ", #".join(match_list)
+        match_str = ", #".join(match_list)    
+    
+
+    #with open('Sheet1.json') as f:
+    #    data = f.read()
+    #    jsondata = json.loads(data)
+
+
+
+    #match_list = jsonpath.jsonpath(jsondata,
+    #                          '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
+    #match_str = ", #".join(match_list)
 
 
     speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
