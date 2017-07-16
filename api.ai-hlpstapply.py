@@ -53,10 +53,10 @@ def makeWebhookResult(req):
 
     match_list = jsonpath.jsonpath(jsondata,
                               '$.features[[?(@.ProgramName == str(Progr) && @.Level == str(Levp) && @.StartDate == str(time))]].UniversityName,Program URL,App Deadline,1stYrTuition')
-    #match_str = ", #".join(match_list)
+    match_str = ", #".join(match_list)
 
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
 
     print("Response:")
     print(speech)
