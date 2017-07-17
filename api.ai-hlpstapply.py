@@ -45,13 +45,13 @@ def makeWebhookResult(req):
         
         Pr="".join(Progr)
         yes=json.dumps(Pr)
-        A=str(yes)
+        A=yes
         Ti="".join(time)
         qew=json.dumps(Ti)
-        B=str(qew)
+        B=qew
         Le="".join(Levp)
         vbe=json.dumps(Le)
-        C=str(vbe)
+        C=vbe
         
     
 
