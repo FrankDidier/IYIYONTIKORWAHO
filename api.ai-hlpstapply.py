@@ -63,14 +63,14 @@ def makeWebhookResult(req):
     print("Response:")
     print(speech)
 
-    return json.dumps({
+    return {
         "speech": speech,
         "displayText": speech,
         
         #"data": [],
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
-    })
+    }
 
 
 if __name__ == '__main__':
