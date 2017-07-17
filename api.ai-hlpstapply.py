@@ -44,7 +44,7 @@ def makeWebhookResult(req):
         Levp = parameters.get("PhDDegLevp")
         
         Pr="".join(Progr)
-        yes=str(Pr)
+        yes="{0}".format(Pr)
         Ti="".join(time)
         Le="".join(Levp)
         
