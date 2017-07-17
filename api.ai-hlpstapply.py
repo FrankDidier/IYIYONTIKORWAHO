@@ -39,14 +39,14 @@ def makeWebhookResult(req):
 
         Progr = parameters.get("PhDsubjects")
     
-        time = parameters.get("PhdTime")
+        tme = parameters.get("PhdTime")
     
         Levp = parameters.get("PhDDegLevp")
         
         Pr="".join(Progr)
         yes=json.dumps(Pr)
         A=yes
-        Ti="".join(time)
+        Ti="".join(tme)
         qew=json.dumps(Ti)
         B=qew
         Le="".join(Levp)
