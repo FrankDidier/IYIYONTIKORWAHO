@@ -44,6 +44,7 @@ def makeWebhookResult(req):
         Levp = parameters.get("PhDDegLevp")
         
         Pr="".join(Progr)
+        yes=str(Pr)
         Ti="".join(time)
         Le="".join(Levp)
         
@@ -60,7 +61,7 @@ def makeWebhookResult(req):
     #match_str = ", #".join(match_list)
 #
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)+ Pr
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)+ yes
 
     print("Response:")
     print(speech)
