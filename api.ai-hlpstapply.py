@@ -44,13 +44,13 @@ def makeWebhookResult(req):
         Levp = parameters.get("PhDDegLevp")
         
         Pr="".join(Progr)
-        #yes=json.dumps(Pr)
+        yes=json.dumps(Pr)
         #A=yes
         Ti="".join(time)
-        #qew=json.dumps(Ti)
+        qew=json.dumps(Ti)
         #B=qew
         Le="".join(Levp)
-        #vbe=json.dumps(Le)
+        vbe=json.dumps(Le)
         #C=vbe
         
     
@@ -62,7 +62,7 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == Pr && @.Level == Le  && @.StartDate == Ti )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == yes && @.Level == vbe  && @.StartDate == qew )]].UniversityName,Program URL,App Deadline,1stYrTuition')
     #match_str = ", #".join(match_list)
 #
 
