@@ -45,7 +45,7 @@ def makeWebhookResult(req):
         
         Pr=''.join(Progr)
         #A = json.loads(Pr)
-        #yes=json.dumps(Pr)
+        yes=json.dumps(Pr)
         A=str(Pr)
         Ti=''.join(tme)
         #qew=json.dumps(Ti)
@@ -67,7 +67,7 @@ def makeWebhookResult(req):
     #match_str = ", #".join(match_list)
 #
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)+ json.dumps(Progr)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)+ json.dumps(Progr) + yes
 
     print("Response:")
     print(speech)
