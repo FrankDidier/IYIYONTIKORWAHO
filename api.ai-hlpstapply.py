@@ -54,23 +54,23 @@ def makeWebhookResult(req):
 
 
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == json.dumps(Progr) && @.Level == json.dumps(Levp) && @.StartDate == json.dumps(time)))]].UniversityName,Program URL,App Deadline,1stYrTuition')
-    #match_str = ", #".join(match_list)
+                              '$.features[[?(@.ProgramName == Progr && @.Level == Levp && @.StartDate == time)]].UniversityName,Program URL,App Deadline,1stYrTuition')
+    match_str = ", #".join(match_list)
 #
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(match_list)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
 
     print("Response:")
     print(speech)
 
-    return {
+    return json.dumps({
         "speech": speech,
         "displayText": speech,
         
         #"data": [],
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
-    }
+    })
 
 
 if __name__ == '__main__':
