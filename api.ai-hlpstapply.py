@@ -7,9 +7,9 @@ install_aliases()
 
 import json
 import os
-#import jsonpath
-from jsonpath_rw import jsonpath, parse
-import jsonpath_rw
+import jsonpath
+#from jsonpath_rw import jsonpath, parse
+#import jsonpath_rw
 
 from flask import Flask
 from flask import request
@@ -61,11 +61,14 @@ def makeWebhookResult(req):
     with open('Sheet1.json') as f:
         data = f.read()
         jsondata = json.loads(data)
-
-    match_list = jsonpath_rw.parse("$.features[[?(@.ProgramName == 'Economics' && @.Level == 'PhD'  && @.StartDate == 'September' )]].UniversityName,Program URL,App Deadline,1stYrTuition").find(jsondata)
+    #using Jsonpath_rw
+    #match_list = jsonpath_rw.parse("$.features[[?(@.ProgramName == A && @.Level == C  && @.StartDate == B )]].UniversityName,Program URL,App Deadline,1stYrTuition").find(jsondata)
     #y="bachelor's"
-    #match_list = jsonpath.jsonpath(jsondata,
-    #                          '$.features[[?(@.ProgramName == A && @.Level == C  && @.StartDate == B )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+    #Using jsonpath
+    match_list = jsonpath.jsonpath(jsondata,
+                              '$.features[[?(@.ProgramName == "{}"...'.format("Economics") && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+    
+    
     #match_str = ", #".join(match_list)
 #
 
