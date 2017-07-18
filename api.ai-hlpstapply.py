@@ -7,7 +7,8 @@ install_aliases()
 
 import json
 import os
-import jsonpath
+#import jsonpath
+from jsonpath_rw import jsonpath, parse
 
 from flask import Flask
 from flask import request
@@ -63,7 +64,7 @@ def makeWebhookResult(req):
 
     #y="bachelor's"
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == "Civil Engineering" && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == A && @.Level == C  && @.StartDate == B )]].UniversityName,Program URL,App Deadline,1stYrTuition')
     #match_str = ", #".join(match_list)
 #
 
