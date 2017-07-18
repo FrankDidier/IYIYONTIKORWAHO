@@ -57,10 +57,11 @@ def makeWebhookResult(req):
     csvTable = []
     isHeader = True
     for row in csvData:
-        if isHeader = False
-        headerRow = row
-        for i in range(len(headerRow)):
-            headerRow[i] = headerRow[i].replace(' ', '_')
+        if isHeader:
+            isHeader = False
+            headerRow = row
+            for i in range(len(headerRow)):
+                headerRow[i] = headerRow[i].replace(' ', '_')
         else:
             csvTable.append(row)
     colType = []
