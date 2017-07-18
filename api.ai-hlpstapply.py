@@ -94,7 +94,7 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
             elif colType[i] == 'int':
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
-         t = csvTable[j]
+        t = csvTable[j]
                     
     
 
@@ -113,21 +113,21 @@ def makeWebhookResult(req):
     #match_str = ", #".join(match_list)
 #
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + json.dumps(t)
+         speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + json.dumps(t)
     #str(match_list) + t
     #+ json.dumps(Progr) + yes
 
-    print("Response:")
-    print(speech)
+         print("Response:")
+         print(speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
+         return {
+             "speech": speech,
+             "displayText": speech,
         
-        #"data": [],
-        # "contextOut": [[{"name":"phd", "lifespan":5}],
-        "source": "marcopolo1995"
-    }
+             #"data": [],
+             # "contextOut": [[{"name":"phd", "lifespan":5}],
+             "source": "marcopolo1995"
+        }
 
 
 if __name__ == '__main__':
