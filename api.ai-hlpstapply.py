@@ -42,7 +42,7 @@ def trial(req):
         Progr = parameters.get("PhDsubjects")
         Pr=''.join(Progr)
         
-        return str(Pr)
+        return Pr
 def makeWebhookResult(req):
     if req.get("result").get("action") == "Phdapp":
         result = req.get("result")
@@ -76,7 +76,7 @@ def makeWebhookResult(req):
     #Using jsonpath
     t=trial(req)
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == t && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == str(t) && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
     
     
     #match_str = ", #".join(match_list)
