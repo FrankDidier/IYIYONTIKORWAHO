@@ -8,7 +8,7 @@ import codecs
 import csv
 import json
 import os
-import jsonpath
+#import jsonpath
 #from jsonpath_rw import jsonpath, parse
 #import jsonpath_rw
 
