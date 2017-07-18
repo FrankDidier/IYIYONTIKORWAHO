@@ -94,9 +94,10 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
             elif colType[i] == 'int':
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
-     if eval(query):
+        if eval(query):
+            t=csvTable[j]
         #print(headerRow)
-        t=csvTable[j]
+        #t=csvTable[j]
 
     #t = csvTable[j]
     match_str = ", #".join(t)
