@@ -34,7 +34,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 #
-def trial():
+def trial(req):
     if req.get("result").get("action") == "Phdapp":
         result = req.get("result")
         parameters = result.get("parameters")
@@ -75,7 +75,7 @@ def makeWebhookResult(req):
     #y="bachelor's"
     #Using jsonpath
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == trial() && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == trial(req) && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
     
     
     #match_str = ", #".join(match_list)
