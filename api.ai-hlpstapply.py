@@ -113,7 +113,7 @@ def makeWebhookResult(req):
     #match_str = ", #".join(match_list)
 #
 
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + t
     #str(match_list) + t
     #+ json.dumps(Progr) + yes
 
