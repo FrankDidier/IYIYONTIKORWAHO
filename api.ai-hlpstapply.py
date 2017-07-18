@@ -34,27 +34,36 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 #
-def makeWebhookResult(req):
+def trial():
     if req.get("result").get("action") == "Phdapp":
         result = req.get("result")
         parameters = result.get("parameters")
 
         Progr = parameters.get("PhDsubjects")
+        Pr=''.join(Progr)
+        
+        return json.dumps(Pr)
+def makeWebhookResult(req):
+    if req.get("result").get("action") == "Phdapp":
+        result = req.get("result")
+        parameters = result.get("parameters")
+
+        #Progr = parameters.get("PhDsubjects")
     
         tme = parameters.get("PhdTime")
     
         Levp = parameters.get("PhDDegLevp")
         
-        Pr=''.join(Progr)
+        #Pr=''.join(Progr)
         #A = json.loads(Pr)
-        yes=json.dumps(Pr)
-        A=str(Pr)
-        Ti=''.join(tme)
+        #yes=json.dumps(Pr)
+        #A=str(Pr)
+        #Ti=''.join(tme)
         #qew=json.dumps(Ti)
-        B=str(Ti)
-        Le=''.join(Levp)
+        #B=str(Ti)
+        #Le=''.join(Levp)
         #vbe=json.dumps(Le)
-        C=str(Le)
+        #C=str(Le)
         
     
 
@@ -66,7 +75,7 @@ def makeWebhookResult(req):
     #y="bachelor's"
     #Using jsonpath
     match_list = jsonpath.jsonpath(jsondata,
-                              '$.features[[?(@.ProgramName == "{}"...'.format("Economics") && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
+                              '$.features[[?(@.ProgramName == trial() && @.Level == "PhD"  && @.StartDate == "September" )]].UniversityName,Program URL,App Deadline,1stYrTuition')
     
     
     #match_str = ", #".join(match_list)
