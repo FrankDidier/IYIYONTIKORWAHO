@@ -51,8 +51,9 @@ def makeWebhookResult(req):
         Ti = ''.join(tme)
         Le = ''.join(Levp)
 
-    query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
-    csvData = csv.reader(codecs.open('bestsheet.csv', 'rb', encoding='latin-1'))
+    #query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
+    query = 'id > 36 and code_name == "def" and value <=100'
+    csvData = csv.reader(codecs.open('myData.csv', 'rb', encoding='latin-1'))
     csvTable = []
     isHeader = True
     for row in csvData:
@@ -93,9 +94,11 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
             elif colType[i] == 'int':
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
+     if eval(query):
+        #print(headerRow)
+        t=csvTable[j]
 
-
-    t = csvTable[j]
+    #t = csvTable[j]
     match_str = ", #".join(t)
     speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
         # str(match_list) + t
