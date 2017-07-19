@@ -109,22 +109,16 @@ def makeWebhookResult(req):
     #t = csvTable[j]
     #match_str = ", #".join(t)
             speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)
-            speecha = "These are universities you were looking for o:) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)
-            speechb = "These are universities you were looking for u:) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)
         #+","+str(b)+","+str(l)+","+str(p)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
 
     print("Response:")
-    print(speech,speecha,speechb)
+    print(speech)
 
     return {
         "speech": speech,
-        "speech":speecha,
-        "speech":speechb,
         "displayText": speech,
-        "displayText":speecha,
-        "displaytext":speechb,
         # "data": data,
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
