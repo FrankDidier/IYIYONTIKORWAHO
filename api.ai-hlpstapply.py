@@ -53,7 +53,7 @@ def makeWebhookResult(req):
 
     query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
     #query = 'id > 0 and code_name == "def" and value <=100'
-    csvData = csv.reader(codecs.open('bestsheet.csv','rU',encoding='latin-1'))
+    csvData = csv.reader(codecs.open('bestsheet.csv','rU',encoding='utf-16'))
     csvTable = []
     isHeader = True
     for row in csvData:
