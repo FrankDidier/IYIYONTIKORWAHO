@@ -94,10 +94,10 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
             elif colType[i] == 'int':
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
-        #if eval(query):
-        #    t=csvTable[j]
-        #    j += -1
-        #    A = csvTable[j]
+        if eval(query):
+            t=csvTable[j]
+            j += -1
+            A = csvTable[j]
             #j += -1
             #B = csvTable[j]
             #j += -1
@@ -110,13 +110,13 @@ def makeWebhookResult(req):
             #o=csvTable[j+1]
             #u='    =>'.join(t)
         #print(headerRow)
-        t=csvTable[j]
-        j += -1
-        o=csvTable[j]
+        #t=csvTable[j]
+        #j += -1
+        #o=csvTable[j]
 
     #t = csvTable[j]
     #match_str = ", #".join(u)
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)+","+ str(o) 
+         speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)+","+ str(A) 
     #+","+ str(B)+","+ str(C) + "," + str(D) + "," + str(E)
     #+ "," + str(o)
         # str(match_list) + t
