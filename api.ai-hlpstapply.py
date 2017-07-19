@@ -99,7 +99,9 @@ def makeWebhookResult(req):
             o=csvTable[j+1]
             #u='    =>'.join(t)
         #print(headerRow)
-        #t=csvTable[j]
+        t=csvTable[j]
+        j += -1
+        o=csvTable[j]
 
     #t = csvTable[j]
     #match_str = ", #".join(u)
