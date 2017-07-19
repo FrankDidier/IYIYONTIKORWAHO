@@ -2,7 +2,7 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 
 install_aliases()
-#import codecs
+import codecs
 import csv
 import json
 import os
@@ -53,7 +53,7 @@ def makeWebhookResult(req):
 
     query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
     #query = 'id > 0 and code_name == "def" and value <=100'
-    csvData = csv.reader(open('bestsheet.csv',encoding='UTF-8'))
+    csvData = csv.reader(codecs.open('bestsheet.csv',encoding='latin-1'))
     csvTable = []
     isHeader = True
     for row in csvData:
