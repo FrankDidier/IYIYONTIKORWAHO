@@ -119,8 +119,12 @@ def makeWebhookResult(req):
     print(speech,speecha,speechb)
 
     return {
-        "speech": speech,speecha,speechb
-        "displayText": speech,speecha,speechb
+        "speech": speech,
+        "speech":speecha,
+        "speech":speechb,
+        "displayText": speech,
+        "displayText":speecha,
+        "displaytext":speechb,
         # "data": data,
         # "contextOut": [[{"name":"phd", "lifespan":5}],
         "source": "marcopolo1995"
