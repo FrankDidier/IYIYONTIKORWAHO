@@ -96,19 +96,28 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
         if eval(query):
             t=csvTable[j]
-            j += -1
-            A = csvTable[j]
-            j += -1
-            B = csvTable[j]
-            j += -1
-            C=csvTable[j]
-            j += -1
-            D = csvTable[j]
-            j += -1
-            E = csvTable[j]
+            #j += -1
+            #A = csvTable[j]
+            #j += -1
+            #B = csvTable[j]
+            #j += -1
+            #C=csvTable[j]
+            #j += -1
+            #D = csvTable[j]
+            #j += -1
+            #E = csvTable[j]
             #y=print(t)
             #o=csvTable[j+1]
-            #u='    =>'.join(t)
+        j += -1
+        A = csvTable[j]
+        j += -1
+        B = csvTable[j]
+        j += -1
+        C=csvTable[j]
+        j += -1
+        D = csvTable[j]
+        j += -1
+        E = csvTable[j]    #u='    =>'.join(t)
         #print(headerRow)
         #t=csvTable[j]
         #j += -1
