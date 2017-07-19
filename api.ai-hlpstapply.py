@@ -96,13 +96,13 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
         if eval(query):
             t=csvTable[j]
-            u='    =>'.join(t)
+            #u='    =>'.join(t)
         #print(headerRow)
         #t=csvTable[j]
 
     #t = csvTable[j]
-    match_str = ", #".join(u)
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + match_str
+    #match_str = ", #".join(u)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + '    =>'.join(t)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
 
