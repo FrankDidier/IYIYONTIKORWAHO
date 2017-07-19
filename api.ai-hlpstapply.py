@@ -37,15 +37,15 @@ def webhook():
 #
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") == "Phdapp":
+    if req.get("result").get("action") == "Bestapplydotcom":
         result = req.get("result")
         parameters = result.get("parameters")
 
-        Progr = parameters.get("PhDsubjects")
+        Progr = parameters.get("SubjectChoice")
 
-        tme = parameters.get("PhdTime")
+        tme = parameters.get("BestTime")
 
-        Levp = parameters.get("PhDDegLevp")
+        Levp = parameters.get("BestLev")
 
         Pr = ''.join(Progr)
         Ti = ''.join(tme)
@@ -108,7 +108,7 @@ def makeWebhookResult(req):
 
     #t = csvTable[j]
     #match_str = ", #".join(t)
-            speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)
+            speech = "These are universities you were looking for :) with their Program direct-link ,Starting Date ,Application Deadline,(n)years with Tuition fees in Total, and Tuition Fees Per year:=>" + str(t)
         #+","+str(b)+","+str(l)+","+str(p)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
