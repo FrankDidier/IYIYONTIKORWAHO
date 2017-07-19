@@ -2,7 +2,7 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 
 install_aliases()
-import codecs
+#import codecs
 import csv
 import json
 import os
@@ -53,7 +53,7 @@ def makeWebhookResult(req):
 
     query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
     #query = 'id > 0 and code_name == "def" and value <=100'
-    csvData = csv.reader(codecs.open('bestsheet.csv','rU',encoding='utf-16-be'))
+    csvData = csv.reader(open('bestrial.csv',encoding='latin-1'))
     csvTable = []
     isHeader = True
     for row in csvData:
@@ -94,18 +94,20 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
             elif colType[i] == 'int':
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
-        #if eval(query):
-            #t=csvTable[j]
+        if eval(query):
+            t=csvTable[j]
+            y=print(t)
             #o=csvTable[j+1]
             #u='    =>'.join(t)
         #print(headerRow)
-        t=csvTable[j]
-        j += -1
-        o=csvTable[j]
+        #t=csvTable[j]
+        #j += -1
+        #o=csvTable[j]
 
     #t = csvTable[j]
     #match_str = ", #".join(u)
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t) + "," + str(o)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(y)
+    #+ "," + str(o)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
 
