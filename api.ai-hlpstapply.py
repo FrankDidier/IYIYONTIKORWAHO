@@ -51,9 +51,9 @@ def makeWebhookResult(req):
         Ti = ''.join(tme)
         Le = ''.join(Levp)
 
-    #query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
-    query = 'id > 36 and code_name == "def" and value <=100'
-    csvData = csv.reader(codecs.open('myData.csv', 'rb', encoding='latin-1'))
+    query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
+    #query = 'id > 0 and code_name == "def" and value <=100'
+    csvData = csv.reader(codecs.open('Test.csv', 'rb', encoding='latin-1'))
     csvTable = []
     isHeader = True
     for row in csvData:
