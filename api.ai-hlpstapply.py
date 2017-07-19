@@ -96,8 +96,8 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
         if eval(query):
             t=csvTable[j]
-            #j += -1
-            #A = csvTable[j]
+            j += -1
+            A = csvTable[j]
             #j += -1
             #B = csvTable[j]
             #j += -1
@@ -108,16 +108,7 @@ def makeWebhookResult(req):
             #E = csvTable[j]
             #y=print(t)
             #o=csvTable[j+1]
-        j += -1
-        A = csvTable[j]
-        j += -1
-        B = csvTable[j]
-        j += -1
-        C=csvTable[j]
-        j += -1
-        D = csvTable[j]
-        j += -1
-        E = csvTable[j]    #u='    =>'.join(t)
+            #u='    =>'.join(t)
         #print(headerRow)
         #t=csvTable[j]
         #j += -1
@@ -125,7 +116,8 @@ def makeWebhookResult(req):
 
     #t = csvTable[j]
     #match_str = ", #".join(u)
-    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)+","+ str(A) +","+ str(B)+","+ str(C) + "," + str(D) + "," + str(E)
+    speech = "These are universities you were looking for :) with their Program direct-link ,Application Deadline with first year Tuition Fees:=>" + str(t)+","+ str(A) 
+    #+","+ str(B)+","+ str(C) + "," + str(D) + "," + str(E)
     #+ "," + str(o)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
