@@ -50,7 +50,7 @@ def makeWebhookResult(req):
         Pr = ''.join(Progr)
         Ti = ''.join(tme)
         Le = ''.join(Levp)
-
+    l=[]
     query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
     csvData = csv.reader(open('bestrial.csv', encoding='latin-1'))
     csvTable = []
@@ -95,6 +95,7 @@ def makeWebhookResult(req):
                 exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
         if eval(query):
             t = csvTable[j]
+            l.append(t)
             #for x in t:
                 #print(x, end=' <-#-> ')
                 
@@ -112,7 +113,7 @@ def makeWebhookResult(req):
 
     #t = csvTable[j]
     #match_str = ", #".join(t)
-            speech = "These are universities you were looking for :) with their Program direct-link ,Starting Date ,Application Deadline,(n)years with Tuition fees in Total, and Tuition Fees Per year:=>" + zip(*t)
+            speech = "These are universities you were looking for :) with their Program direct-link ,Starting Date ,Application Deadline,(n)years with Tuition fees in Total, and Tuition Fees Per year:=>" + str(l)
         #+","+str(b)+","+str(l)+","+str(p)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
