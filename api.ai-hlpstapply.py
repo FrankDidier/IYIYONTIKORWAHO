@@ -43,15 +43,16 @@ def makeWebhookResult(req):
 
         Progr = parameters.get("SubjectChoice")
 
-        tme = parameters.get("BestTime")
+        #tme = parameters.get("BestTime")
 
         Levp = parameters.get("BestLev")
 
         Pr = ''.join(Progr)
-        Ti = ''.join(tme)
+        #Ti = ''.join(tme)
         Le = ''.join(Levp)
     l=[]
-    query = 'Program_Name == Pr and Level == Le and Start_Date == Ti'
+    query = 'Program_Name == Pr and Level == Le' 
+    #and Start_Date == Ti'
     csvData = csv.reader(open('bestrial.csv', encoding='latin-1'))
     csvTable = []
     isHeader = True
