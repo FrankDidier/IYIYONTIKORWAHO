@@ -114,7 +114,7 @@ def makeWebhookResult(req):
 
     #t = csvTable[j]
     #match_str = ", #".join(t)
-            speech = "These are universities you were looking for :) with their Program direct-link ,Starting Date ,Application Deadline,(n)years with Tuition fees in Total, and Tuition Fees Per year:=>" + str(l)
+            speech = "These are universities you were looking for :) with their Program direct-link & Starting Date :=>" + str(l)
         #+","+str(b)+","+str(l)+","+str(p)
         # str(match_list) + t
         # + json.dumps(Progr) + yes
