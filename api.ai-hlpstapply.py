@@ -6,6 +6,7 @@ import codecs
 import csv
 import json
 import os
+import smtplib
 # import jsonpath
 # from jsonpath_rw import jsonpath, parse
 # import jsonpath_rw
@@ -37,6 +38,26 @@ def webhook():
 #
 
 def makeWebhookResult(req):
+    if req.get("result").get("action") == "DefaultFallbackIntent.DefaultFallbackIntent-custom":
+        result = req.get("result")
+        parameters = result.get("parameters")
+
+        Addr = parameters.get("email")
+
+        Countr = parameters.get("geo-country")
+
+        #Pr = ''.join(Progr)
+        # Ti = ''.join(tme)
+        #Le = ''.join(Levp)
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login("testapiblcu@gmail.com", "Testapi2017")
+
+        msg = "A user need further help at china admission -> MARCO POLO Bot -> his/her E-mail & his/her Country"+str(Addr) +str(Countr)
+        server.sendmail("testapiblcu@gmail.com", "ididierfrank@yahoo.fr", msg)
+        server.quit()
+        
+        
     if req.get("result").get("action") == "Bestapplydotcom":
         result = req.get("result")
         parameters = result.get("parameters")
