@@ -54,7 +54,7 @@ def makeWebhookResult(req):
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
         msg = "A user need further help at china admission -> MARCO POLO Bot -> his/her E-mail & his/her Country"+str(Addr) +str(Countr)
-        server.sendmail("testapiblcu@gmail.com", "ididierfrank@yahoo.fr", msg)
+        server.sendmail("testapiblcu@gmail.com", "richcoward@gmail.com", msg)
         server.quit()
         
         
