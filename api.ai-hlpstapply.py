@@ -47,6 +47,12 @@ def makeWebhookResult(req):
         Countr = parameters.get("geo-country")
         
         ContentM = parameters.get("Seasonintake")
+        
+        GiveName = parameters.get("given-name")
+        
+        LastName = parameters.get("last-name")
+        
+        ProgInte = parameters.get("prograinterest")
 
         #Pr = ''.join(Progr)
         # Ti = ''.join(tme)
@@ -55,7 +61,7 @@ def makeWebhookResult(req):
         server.starttls()
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
-        msg = "A user need further help at china admission -> MARCO POLO Bot -> his/her E-mail , his/her Country & desired starting date "+str(Addr) +str(Countr) +str(ContentM) 
+        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveName) +"\nLast Name: "+str(LastName) +"\nE-mail: "+str(Addr)+"\nCountry: "+str(Countr)+"\nProgram Interest: "+str(ProgInte)+"\nStarting Date: "+str(ContentM) 
         #+str(ContentM)
         server.sendmail("testapiblcu@gmail.com", "testapiblcu2017@gmail.com", msg)
         server.quit()
