@@ -50,7 +50,7 @@ def makeWebhookResult(req):
         
         GiveName = parameters.get("given-name")
         
-        LastName = parameters.get("last-name")
+        #LastName = parameters.get("last-name")
         
         ProgInte = parameters.get("prograinterest")
 
@@ -61,7 +61,7 @@ def makeWebhookResult(req):
         server.starttls()
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
-        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveName) +"\nLast Name: "+str(LastName) +"\nE-mail: "+str(Addr)+"\nCountry: "+str(Countr)+"\nProgram Interest: "+str(ProgInte)+"\nStarting Date: "+str(ContentM) 
+        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveName) +"\nE-mail: "+str(Addr)+"\nCountry: "+str(Countr)+"\nProgram Interest: "+str(ProgInte)+"\nStarting Date: "+str(ContentM) 
         #+str(ContentM)
         server.sendmail("testapiblcu@gmail.com", "testapiblcu2017@gmail.com", msg)
         server.quit()
