@@ -65,8 +65,8 @@ def makeWebhookResult(req):
         ProgInte = parameters.get("prograinterest")
         ProgInteA =''.join(ProgInte)
         
-        PhonNumber = parameters.get("phone-number")
-        PhonNum = ''.join(PhonNumber)
+        #PhonNumber = parameters.get("phone-number")
+        #PhonNum = ''.join(PhonNumber)
 
         #Pr = ''.join(Progr)
         # Ti = ''.join(tme)
@@ -75,7 +75,7 @@ def makeWebhookResult(req):
         server.starttls()
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
-        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveNameA)+" "+str(LasName)+"\nPhone Number: "+str(PhonNum) +"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
+        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveNameA)+" "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
         
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
