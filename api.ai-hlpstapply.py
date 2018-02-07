@@ -70,6 +70,7 @@ def makeWebhookResult(req):
         # Ti = ''.join(tme)
         #Le = ''.join(Levp)
         server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
         server.starttls()
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
