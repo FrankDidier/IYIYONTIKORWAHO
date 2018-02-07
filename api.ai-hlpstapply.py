@@ -73,13 +73,13 @@ def makeWebhookResult(req):
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         server.ehlo()
         #server.starttls()
-        server.login("AlertTestApi2018@gmail.com", "Testapi2017")
+        server.login("testapiblcu@gmail.com", "Testapi2017")
 
-        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveNameA)+" "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
+        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nFirst Name: "+str(GiveNameA)+"\nLast Name: "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
         
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
-        server.sendmail("AlertTestApi2018@gmail.com", "testapiblcu2017@gmail.com", msg)
+        server.sendmail("testapiblcu@gmail.com", "AlertTestApi2018@gmail.com", msg)
         #server.quit()
         server.close()
         
