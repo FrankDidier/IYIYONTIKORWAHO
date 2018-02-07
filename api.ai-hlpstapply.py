@@ -79,7 +79,7 @@ def makeWebhookResult(req):
         
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
-        server.sendmail("testapiblcu@gmail.com", "testapiblcu2017@gmail.com", msg)
+        server.sendmail("testapiblcu@gmail.com", "ididierfrank@yahoo.fr", msg)
         server.quit()
         speech = "Thank you for Providing requested info ,...One of our advisors will contact you. You can also call us on: +86 132 4122 2181"
         
