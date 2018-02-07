@@ -35,8 +35,6 @@ def webhook():
     return r
 
 
-#
-
 def makeWebhookResult(req):
     if req.get("result").get("action") == "DefaultFallbackIntent.DefaultFallbackIntent-custom":
         result = req.get("result")
@@ -83,88 +81,6 @@ def makeWebhookResult(req):
         server.quit()
         speech = "Thank you for Providing requested info ,...One of our advisors will contact you. You can also call us on: +86 132 4122 2181"
         
-        
-    if req.get("result").get("action") == "Bestapplydotcom":
-        result = req.get("result")
-        parameters = result.get("parameters")
-
-        Progr = parameters.get("SubjectChoice")
-
-        #tme = parameters.get("BestTime")
-
-        Levp = parameters.get("BestLev")
-
-        Pr = ''.join(Progr)
-        #Ti = ''.join(tme)
-        Le = ''.join(Levp)
-    l=[]
-    query = 'Program_Name == Pr and Level == Le' 
-    #and Start_Date == Ti'
-    csvData = csv.reader(open('BestTry.csv', encoding='latin-1'))
-    csvTable = []
-    isHeader = True
-    for row in csvData:
-        if isHeader:
-            isHeader = False
-            headerRow = row
-            for i in range(len(headerRow)):
-                headerRow[i] = headerRow[i].replace(' ', '_')
-        else:
-            csvTable.append(row)
-    colType = []
-    for i in range(len(headerRow)):
-        isFloat = True
-        isInt = True
-        for j in range(len(csvTable)):
-            try:
-                v = float(csvTable[j][i])
-                if not v == int(v):
-                    isInt = False
-            except ValueError:
-                isFloat = False
-                isInt = False
-
-        colT = ''
-        if isInt:
-            colT = 'int'
-        elif isFloat:
-            colT = 'float'
-        else:
-            colT = 'string'
-        colType.append(colT)
-
-    for j in range(len(csvTable)):
-        for i in range(len(headerRow)):
-            if colType[i] == 'string':
-                exec(headerRow[i] + '=' + '"' + csvTable[j][i] + '"')
-            elif colType[i] == 'float':
-                exec(headerRow[i] + '=' + 'float("' + csvTable[j][i] + '")')
-            elif colType[i] == 'int':
-                exec(headerRow[i] + '=' + 'int("' + csvTable[j][i] + '")')
-        if eval(query):
-            t = csvTable[j]
-            l.append(t)
-            #for x in t:
-                #print(x, end=' <-#-> ')
-                
-            #print(x, end=' <-#-> ')
-            #j += -1
-            #r = csvTable[j]
-            #j += -1
-            #b = csvTable[j]
-            #j += -1
-            #l = csvTable[j]
-            #j += -1
-            #p = csvTable[j]
-            #print(t, r, b, l, p)
-
-
-    #t = csvTable[j]
-    #match_str = ", #".join(t)
-            speech = "These are universities you were looking for :) with their Program direct-link & Starting Date :=>" + str(l)
-        #+","+str(b)+","+str(l)+","+str(p)
-        # str(match_list) + t
-        # + json.dumps(Progr) + yes
 
     print("Response:")
     print(speech)
