@@ -69,9 +69,10 @@ def makeWebhookResult(req):
         #Pr = ''.join(Progr)
         # Ti = ''.join(tme)
         #Le = ''.join(Levp)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        #server.ehlo()
-        server.starttls()
+        #server = smtplib.SMTP('smtp.gmail.com', 587)
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        server.ehlo()
+        #server.starttls()
         server.login("AlertTestApi2018@gmail.com", "Testapi2017")
 
         msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveNameA)+" "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
@@ -79,7 +80,9 @@ def makeWebhookResult(req):
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
         server.sendmail("AlertTestApi2018@gmail.com", "testapiblcu2017@gmail.com", msg)
-        server.quit()
+        #server.quit()
+        server.close()
+        
     speech = "Thank you for your interest and providing the information. One of our advisors will get in contact with you soon. You can also contact us directly: wechat: china-admissions or send us an email to apply@china-admissions.com. You can also call us or add us on WhatsApp: +86 132 4122 2181"
         
 
