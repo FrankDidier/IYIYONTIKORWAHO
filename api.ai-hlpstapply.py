@@ -79,7 +79,7 @@ def makeWebhookResult(req):
         #+str(ContentM)
         server.sendmail("testapiblcu2017@gmail.com", "ididierfrank@yahoo.fr", msg)
         server.quit()
-        speech = "Thank you for Providing requested info ,...One of our advisors will contact you. You can also call us on: +86 132 4122 2181"
+    speech = "Thank you for your interest and providing the information. One of our advisors willl get in contact with you soon. You can also contact us directly: wechat: china-admissions or send us an email to apply@china-admissions.com. You can also call us or add us on WhatsApp: +86 132 4122 2181"
         
 
     print("Response:")
