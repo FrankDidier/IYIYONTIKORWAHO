@@ -73,13 +73,13 @@ def makeWebhookResult(req):
         #Le = ''.join(Levp)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("testapiblcu@gmail.com", "Testapi2017")
+        server.login("testapiblcu2017@gmail.com", "Testapi2017")
 
         msg = "A user need further help at china admission -> MARCO POLO Bot -> \nGiven Name: "+str(GiveNameA)+" "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
         
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
-        server.sendmail("testapiblcu@gmail.com", "ididierfrank@yahoo.fr", msg)
+        server.sendmail("testapiblcu2017@gmail.com", "ididierfrank@yahoo.fr", msg)
         server.quit()
         speech = "Thank you for Providing requested info ,...One of our advisors will contact you. You can also call us on: +86 132 4122 2181"
         
