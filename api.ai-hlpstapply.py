@@ -36,7 +36,7 @@ def webhook():
 
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") == "DefaultFallbackIntent.DefaultFallbackIntent-custom":
+    if req.get("result").get("action") == "HumanInteractionAlert":
         result = req.get("result")
         parameters = result.get("parameters")
 
