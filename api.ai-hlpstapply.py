@@ -49,10 +49,10 @@ def makeWebhookResult(req):
         ContentM = parameters.get("Seasonintake")
         ContentMA =''.join(ContentM)
         
-        GiveName = parameters.get("Fname")
+        GiveName = parameters.get("given-name")
         GiveNameA =''.join(GiveName)
         
-        LastName = parameters.get("Lname")
+        LastName = parameters.get("last-name")
         LasName = ''.join(LastName)
         
         #DateEntry = parameters.get("date")
