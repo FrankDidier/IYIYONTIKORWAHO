@@ -55,6 +55,9 @@ def makeWebhookResult(req):
         LastName = parameters.get("last-name")
         LasName = ''.join(LastName)
         
+        DegreeA = parameters.get("degreeCollectingInfo")
+        DegreeB = ''.join(DegreeA)
+        
         #DateEntry = parameters.get("date")
         #DateEn = ''.join(DateEntry)
         
@@ -75,7 +78,7 @@ def makeWebhookResult(req):
         #server.starttls()
         server.login("testapiblcu@gmail.com", "Testapi2017")
 
-        msg = "A user need further help at china admission -> MARCO POLO Bot -> \nFirst Name: "+str(GiveNameA)+"\nLast Name: "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
+        msg = "A user need further help from student's counsellors at china admission -> From MARCO POLO Bot -> \nFirst Name: "+str(GiveNameA)+"\nLast Name: "+str(LasName)+"\nE-mail: "+str(AddrA)+"\nCountry: "+str(CountrA)+"\nDegree: "+str(DegreeB)+"\nProgram Interest: "+str(ProgInteA)+"\nStarting Date: "+str(ContentMA)
         
         #+"\nDate of data Entry: "+ DateEn 
         #+str(ContentM)
